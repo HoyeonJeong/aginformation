@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>US Dams for Water Resource and Recreation</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+
+    <style>
+        /* UK Colors: 
+            #c7c9c8 light gray 
+            #63666a dark gray
+            #15397f dark blue
+            #009bda light blue
+            #0033a0 official blue
+        */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #c7c9c8;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            color: #3d3d3d;
+            font-size: 1.1em;
+
+        }
+
+        section {
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        h1 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900i;
+            font-size: 2.8em;
+            font-style: italic;
+            /* The em unit. 3x the current size */
+            letter-spacing: .01em;
+            margin: 0 0 15px 0;
+            /* text-transform: uppercase; */
+        }
+
+        h2 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            color: #63666a;
+            font-size: 1.5em;
+            letter-spacing: .06em;
+            font-style: italic;
+            margin: 0 0 25px 0;
+        }
+
+        h5 {
+            color:crimson;
+        }
+
+        p {
+            font-size: 1.15em;
+            line-height: 1.8em;
+            margin: 0 0 25px 0;
+        }
+
+        a {
+            color: #15397f;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding: 0px 20px 4px 20px;
+            /* font-size: 0.96em; */
+            line-height: 1.6em;
+            color: #63666a;
+        }
+
+        li {
+            margin: 10px 0
+        }
+
+        #map {
+            width: 100%;
+            margin: 0px auto;
+
+        }
+
+        .max-image-width {
+            width: 100%;
+        }
+
+        /* add custom style class here */
+
+        .linkbox {
+            margin: 3px 0 20px 0;
+            display: block;
+            font-weight: 300;
+        }
+
+        hr {
+            border: 0px;
+            border-bottom: 1px solid #3d3d3d;
+            padding-top: 20px;
+        }
+
+        /* Use float property to make two-column layout */
+
+        .first-column {
+            float: left;
+            width: 48%;
+            padding-right: 20px;
+        }
+
+        .column {
+            float: left;
+            width: 48%;
+        }
+
+        /* Clear floats after the columns */
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .svg-title {
+            float: left;
+            display: inline-block;
+            width: 75px;
+            margin: -8px 10px -8px 0;
+        }
+
+        /* When browser is 800px wide or less */
+
+        @media screen and (max-width: 800px) {
+
+            .first-column,
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <iframe src="map.html" width="100%" height="440px"></iframe>
+    <section>
+        <a href='map.html' class="linkbox">Full-screen version</a>
+
+        <img src="/lab-09/svg/dam.svg" class="svg-title">
+        <h1>Hoover Dam and Lake Mead</h1>
+        <h2>University of Kentucky Dep. Agricultural Economics</h2>
+        <div class="row">
+            <div class="first-column">
+                <p>
+                    Hoover Dam was highest dam in the world when it was completed in 1935. It is located in Black Canyon, which is at the border of Arizona and Nevada. 
+                    The dame created one of the largest artifical lakes in the world known as Lake Mead. As construction period coincided with the U.S. Great Depression, many unemployed workers had already moved to the dam's site
+                    along with their families seeking a job opportunity.
+                </p>
+                
+                <h3>Specification of Hoover Dam</h3>
+                <ul>
+                    <li>Original Name: Boulder Dam</li>
+                    <li>Material: Concrete</li>
+                    <li>Height: 221.3 meters</li>
+                    <li>Reservoir: Lake Mead</li>
+                    <li>Surface Area: 162,700 acres</li>
+                </ul>
+                
+                <h3>Main Function of Dams</h3>
+                <ul>    
+                    <li>Agriculture: Irrigation for crops</li>
+                    <li>Domestic Water Supply</li>
+                    <li>Protect flood and Reserve water</li>
+                    <li>Power generation plants: Hydroelectricity</li>
+                    <li>Recreational Function (reservoirs): Aqua Sports, Fishing, Touring </li>
+                </ul>
+                
+                <p>
+                    
+                    
+                                        
+                </p>
+                <h3>Tools used in this project</h3>
+                <ul>
+                    <li>PostGIS was used to store/query the national dataset.</li>
+                    <li>Data is shown on Mapbox web map with geolocation services enabled. If the map got popular, it would require a fee to use.</li>
+                    <li>Dam shape file is directly integrated into Mapbox.</li>
+                    <li>Water Resource Data from <a href="https://water.usgs.gov/GIS/metadata/usgswrd/XML/reservoir.xml" target="blank">USGS Water Mission Area NSDI Node</a></li>
+                </ul>
+
+
+                <hr>
+                <h3>Project assets</h3>
+                <ul>
+                    <li><a href="/lab-09/reservoir_geojson/reservoirs.geojson" download>Point locations Geojason with CRS (WGS 84)</a></li>
+                    <li><a href="/lab-09/reservoir_geojson/reservoirs_wocrs.geojson" download>Point locations Geojason without CRS</a></li>
+                    <!-- <li><a href="arches_us.geojson" download>point locations GeoJSON</a></li>-->
+                </ul>
+                <h5>Warning: Data is old (published 1991). Please be careful when using it.
+                </h5>
+                </p>
+
+            </div>
+            <div class="column">
+                <img class="max-image-width" src="/lab-09/image/hooverdam.jpg"
+                    title="Hoover Dam">
+                <div class="linkbox">Hoover Dam <a href="https://www.visitbouldercity.com/" target="blank">(Boulder City, Nevada)</a> 
+                </div>
+                <img class="max-image-width" src="/lab-09/image/lake_mead.jpg"
+                title="Lake Mead">
+            <div class="linkbox">Lake Mead <a href="https://americasbesthistory.com/abh-lakemead.html" target="blank">(America's Best History)</a> 
+            </div>
+            </div>
+        </div>
+
+
+        <hr>
+        <!-- <h4><a href="https://uky-gis.github.io">UKy GIS and Mapping</a></h4> -->
+        See My Projects (Github): <a href="https://github.com/HoyeonJeong" target="blank">Hoyeon Jeong</a><br>
+        <a href="https://uky-gis.github.io">UKy GIS and Mapping</a>
+    </section>
+</body>
+</html>
