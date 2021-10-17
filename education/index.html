@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<!-- Use the HTML and CSS you developed in module 01 to fill out this template.-->
+
+<head>
+  <meta charset=utf-8 />
+  <title>Farmer Education in KY</title>
+
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Mulish:wght@500&family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
+  <!-- **************************************************************** -->
+  <!-- Check to make this links to the most current version of Leaflet! -->
+  <!-- **************************************************************** -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <!-- **************************************************************** -->
+  
+  <style>
+    /* The map element */
+    #map {
+      width: 100%;
+      height: 450px;
+    }
+
+    /* Add HTML element styles */
+    header, section, footer {
+			width: 80%;
+			margin: 20px auto;
+		}
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e3e3e6;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      color: #3d3d3d;
+      font-size: 100%;
+      /* 16px is default browser size */
+    }
+
+	  h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2.5em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2em;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    h3 {
+      font-weight: 300i;
+      font-size: 1.5em;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 1.1em;
+      font-weight: bold;
+      line-height: 1.5em;
+    }
+
+	  a {
+      color: #15397f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    b {
+      font-family: 'Mulish', sans-serif;
+      font-size: 1.1em;
+      }
+
+    ul {
+      padding: 0px 20px 4px 20px;
+      font-size: 1.1em;
+      line-height: 1.2em;
+      color: #0f1011;
+    }
+
+    li {
+      margin: 10px 0;
+      font-size: 1.1em;
+      line-height: 150%;
+    }
+
+    .li2 {
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+    
+    .linkbox {
+      margin: 3px 0 20px 0;
+      display: blcok;
+      font-size: 0.9em;
+      font-weight: 300;
+      line-height: 1.3em;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: 0;
+      height: 1px;
+      background: #63666a;
+    }
+    
+    .caption {
+      margin: 0 0 20px 0;
+      display: block;
+    }
+
+	.map-image-width {
+      width: 100%;
+    }
+
+    .highlight {
+      color: #15397f;
+      font-weight: bold;
+    }
+
+    .img-fill {
+      width: 100%;
+      height: auto;
+      margin: 5px 0;
+    }
+
+    /* Use float property to make two-column layout */
+    .first-column {
+      float: left;
+      width: 49%;
+      padding-right: 2%;
+    }
+
+    .second-column {
+      float: left;
+      width: 49%;
+    }
+
+    /* Clear floats after the columns */
+    .row::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    /* When browser is 900px wide or less */
+    @media screen and (max-width: 900px) {
+      .first-column,
+      .second-column {
+        width: 100%
+      }
+    }
+    /* Change opacity on hover over the icon class */
+
+    .icon:hover {
+      opacity: .8;
+    }
+
+    /* Modify Leaflet's default popup style */
+
+    .leaflet-popup-content h3 {
+      font-family: "Mulish", serif;
+      font-size: 1.3em;
+      margin-bottom: 6px;
+    }
+
+    .leaflet-popup-content p {
+      margin: 3px 0 6px;
+      font-size: 1.1em;
+    }
+
+    .leaflet-popup-content a {
+      font-weight: normal;
+    }
+
+    #info p {
+      margin: 0px 0px 0px 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Kentucky Farmer Education</h1>
+  </header>
+
+  <section>
+    <div id='map'></div>
+  </section>
+
+  <section>
+    <!-- <p>Additional information about <a href="#">the data</a> and map goes here. </p> -->
+    <div class="" id="info">
+
+    </div>
+    <!-- <p>
+      <ul>
+      <li>Mariza: Italian-inspired fare dished out in an airy loft building with an industrial-chic vibe.</li>
+        <ul>
+          <li class="li2">URL: <a href="http://marizaneworleans.com/" target="blank">http://marizaneworleans.com/</a></li>
+          <li class="li2">Phone: (504) 598-5700</li>
+        </ul>
+      </ul>
+      <ul>
+        <li>PJ's Coffee: New Orleans-born chain for house-roasted coffee, organic teas, blended drinks and pastries.</li>
+          <ul>
+            <li class="li2">URL: <a href="http://pjscoffee.com/" target="blank">http://pjscoffee.com/</a></li>
+            <li class="li2">Phone: (504) 945-6995</li>
+          </ul>
+        </ul>
+        <ul>
+          <li>N. Peters + St Ferdinand: Bus stop (Stop ID: 3560)</li>
+            <ul>
+              <li class="li2">URL: N/A</li>
+              <li class="li2">Phone: N/A</li>
+            </ul>
+          </ul>
+          <ul>
+            <li>Press Street Gardens: An urban farm and outdoor learning lab funded by the NOCCA Foundation, the nonprofit partner of the New Orleans Center for Creative Arts.</li>
+              <ul>
+                <li class="li2">URL: <a href="http://pressstreetgardens.com/" target="blank">http://pressstreetgardens.com/</a></li>
+                <li class="li2">Phone: (504) 940-2808</li>
+              </ul>
+            </ul>
+    </p> -->
+  </section>
+  <footer>
+    <p>Map authored by Hoyeon Jeong (<a href="https://github.com/HoyeonJeong" target="blank">See my GitHub Profile</a>)</p>
+    <hr>
+
+    <a href="https://newmapsplus.github.io">
+      <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png" alt="University of Kentucky Geography">
+    </a>
+
+    <a href="https://uky-gis.github.io">
+      <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png" alt="University of Kentucky Geography">
+    </a>
+  </footer>
+  
+  <!-- **************************************************************** -->
+  <!-- Check to make this links to the most current version of Leaflet! -->
+  <!-- **************************************************************** -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- **************************************************************** -->
+  <script>
+    var map = L.map('map', {
+      center: [37.69386795949233, -85.91050793130096],
+      zoom: 8,
+    });
+
+    // Get basemap URL from Leaflet Providers
+    var basemap_url = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+
+    // Get basemap attributes from Leaflet Providers
+    var basemap_attributes = {
+      maxZoom: 17,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    };
+    // requests some map tiles
+    var tiles = L.tileLayer(basemap_url, basemap_attributes);
+
+    map.addLayer(tiles);
+
+    // Begin writing/modifying code for Lab 05 here
+    
+    var edu = [{
+      name: "KCARD (Kentucky Center for Agriculture and Rural Development)",
+      properties: {
+        description: "A non-profit organization that provides technical assistance and free business planning services to farmers and agricultural businesses in Kentucky.",
+        coordinates: [37.69386795949233, -85.91050793130096],
+        url: 'http://www.kcard.info/',
+        phone: '(859) 550-3972',
+        icon: 'svgs/school-15.svg'
+      }
+    },
+    {
+      name: "University of Kentucky Cooperative Extension Service",
+      properties: {
+        description: "An office in every county to provide agricultural outreach and education to Kentucky communities. Each office has an Agriculture Agent and some have a Horticulture Agent who are there to assist farmers. As a farmer, it is a good idea to get to know your local Extension agents. Find your office nearby you at the homepage.",
+        coordinates: [38.02937317360228, -84.50918346865377],
+        url: 'http://extension.ca.uky.edu/',
+        phone: '(859) 257-4302',
+        icon: 'svgs/college-15.svg'
+      }
+    },
+    {
+      name: "KATS (Kentucky Agriculture Training School)",
+      properties: {
+        description: "Working with researchers and extention specialists, who offer quality hands-on agricultural workshops.",
+        coordinates: [37.09838261617962, -87.85709864087453],
+        url: 'https://kats.ca.uky.edu/',
+        phone: '(270) 365-7541  ',
+        icon: 'svgs/college-15.svg'
+      }
+    },
+    {
+      name: "Kentucky Young Farmer Association",
+      properties: {
+        description: "an organization dedicated to building leadership and management skills in young farmers across the commonwealth. ",
+        coordinates: [38.18495713774391, -84.8487807805389],
+        url: 'hhttps://kyffa.org/yfa',
+        phone: '(502) 564-3472',
+        icon: 'svgs/information-15.svg'
+      }
+    }];
+
+    console.log(edu[0]);
+    console.log(edu[0].name);
+    console.log(edu[0].properties.description);
+    console.log(edu[0].properties.url);
+    console.log(edu[0].properties.coordinates);
+
+    var i=0;
+    // var popup="<b>" + hotspots[i].name + "</b>"; //Assgin the name of hotspots
+    var props=edu[i].properties;
+    console.log(props);
+    console.log(props.description);
+    console.log(props.url);
+
+    // var marker=L.marker(hotspots[i].properties.coordinates, {
+    //   icon: icon
+    // })
+    // .addTo(map).bindPopup(popup);
+
+    // var popup=`<h3>${hotspots[i].name}</h3>
+    //           <p>${props.description}</p>
+    //           <p><b>website</b>: <a href='${props.url}'>${props.url}</a></p>
+    //           <p><b>phone</b>: ${props.phone}</p>`; //Replace popup content
+
+    var info = document.querySelector('#info');
+    
+    for (var i=0; i<edu.length; i++) {
+      var props = edu[i].properties
+      
+      var icon=L.icon({
+        iconUrl: props.icon,
+        iconSize: [40, 40],
+        popupAnchor: [0, -22],
+        className: "icon"
+      });
+
+      var popup =`<h3>${edu[i].name}</h3>
+                <p>${props.description}</p>`;
+
+      if (props.url) {
+        popup += `<p><b>website</b>: <a href='${props.url}'>${props.url}</a></p>`
+      }
+
+      if (props.phone) {
+        popup += `<p><b>phone</b>: ${props.phone}</p>`
+      }
+
+      info.innerHTML += popup
+
+    // if (hotspots[i].properties.phone 
+    //     && hotspots[i].properties.url) { //Both sets of information are available
+    //   console.log("I have the information in this object")
+    //   var popup=`<h3>${hotspots[i].name}</h3>
+    //           <p>${hotspots[i].properties.description}</p>
+    //           <p><b>website</b>: <a href='${hotspots[i].properties.url}'>${hotspots[i].properties.url}</a></p>
+    //           <p><b>phone</b>: ${hotspots[i].properties.phone}</p>`; //All information displayed
+      var marker = L.marker(edu[i].properties.coordinates, {
+        icon: icon
+        })
+      .addTo(map)
+      .bindPopup(popup);
+      
+    // } else if (!hotspots[i].properties.phone && !hotspots[i].properties.url){ //Both sets of information are not available
+    //   console.log("I do not have both a phone number and web site information!")
+    //   var popup=`<h3>${hotspots[i].name}</h3>
+    //           <p>${hotspots[i].properties.description}</p>
+    //           <p><b>website</b>: N/A</p>  
+    //           <p><b>phone</b>: N/A</p>`; //N/A: Not available
+    //   var marker = L.marker(hotspots[i].properties.coordinates, {
+    //   icon: icon
+    //   })
+    //   .addTo(map)
+    //   .bindPopup(popup);
+      
+    // } else if (!hotspots[i].properties.phone) { //Information on a phone is not available
+    //   console.log("I do not have a phone number for this place!")
+    //   var popup=`<h3>${hotspots[i].name}</h3>
+    //           <p>${hotspots[i].properties.description}</p>
+    //           <p><b>website</b>: <a href='${hotspots[i].properties.url}'>${hotspots[i].properties.url}</a></p>
+    //           <p><b>phone</b>: N/A</p>`; //Phone number is not available
+    //   var marker = L.marker(hotspots[i].properties.coordinates, {
+    //   icon: icon
+    //   })
+    //   .addTo(map)
+    //   .bindPopup(popup);
+      
+    // } else { //Information on web site is not available
+    //   console.log("I do not have web site information about this place!")
+    //   var popup=`<h3>${hotspots[i].name}</h3>
+    //           <p>${hotspots[i].properties.description}</p>
+    //           <p><b>website</b>: N/A</p>
+    //           <p><b>phone</b>: ${hotspots[i].properties.phone}</p>`; //Web site is not available
+    //   var marker = L.marker(hotspots[i].properties.coordinates, {
+    //   icon: icon
+    //   })
+    //   .addTo(map)
+    //   .bindPopup(popup);
+    // }
+    marker.on("mouseover", function(){
+      this.openPopup();
+    }
+    );
+
+    marker.on("click", function(){
+      this.closePopup();
+    }
+    );
+  };
+
+    // marker.on("mouseover", function(){
+    //   this.openPopup();
+    // }
+    // );
+
+    // marker.on("mouseout", function(){
+    //   this.closePopup();
+    // }
+    // );
+
+    // var marker=L.marker(hotspots[i].properties.coordinates, {
+    //   icon: icon
+    // }).addTo(map).bindPopup(popup);
+    
+
+
+  </script>
+
+</body>
+
+</html>

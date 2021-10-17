@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8 />
+	<title>Woodland Park LEX KY</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Walter+Turncoat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #dadada;
+			font-family: 'Mulish', sans-serif;
+			color: #3d3d3d;
+		}
+
+		section {
+
+			width: 80%;
+			margin: 20px auto;
+		}
+
+		h1 {
+			font-size: 3em;
+			font-family: 'Mulish:ital', sans-serif;
+			letter-spacing: .04em;
+		}
+
+		h2 {
+			font-size: 2.5em;
+			font-family: 'Mulish', sans-serif;
+			letter-spacing: .04em;
+		}
+		h3 {
+      		font-family: 'Mulish', sans-serif;
+      		font-weight: 700;
+      		color: gray;
+      		font-size: 2em;
+      		letter-spacing: .04em;
+    	}
+
+		h4 {
+      		font-family: 'Mulish', sans-serif;
+      		font-weight: 700;
+      		font-size: 1em;
+      		letter-spacing: .05em;
+ 		}
+		p {
+			font-size: 1em;
+			line-height: 1.5em;
+		}
+
+		a {
+			color: #005daa;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		ul {
+			padding-left: 20px;
+		}
+
+		li {
+			margin: 10px 0
+		}
+
+		#map {
+			width: 100%;
+			margin: 10px auto;
+		}
+
+		
+		#map2 {
+			padding-block: 10px;
+			background-color: #dadada;
+		}
+		.max-image-width {
+			width: 100%;
+		}
+
+		.linkbox {
+			margin: 3px 0 20px 0;
+			display: block;
+			font-weight: 300;
+		}
+
+		hr {
+			border: 0px;
+			border-bottom: 1px solid #3d3d3d;
+			padding-top: 20px;
+		}
+    /* Use float property to make two-column layout. */
+
+    .first-column {
+      float: left;
+      width: 45%;
+      padding-right: 50px;
+    }
+
+    .column {
+      float: right;
+      width: 45%;
+    }
+
+    /* Clear floats after the columns */
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* When browser is 800px wide or less */
+
+    @media screen and (max-width: 800px) {
+
+      .first-column,
+      .column {
+        width: 100%;
+      }
+    }
+	</style>
+</head>
+
+<body>
+	<section>
+
+	<h1>Cafe, Pub, Bar nearby Woodland Park</h1>
+		<div id='map'>
+				<img class="max-image-width" src="/lab-07/images/amenity_1200px.png">
+		<div id='map2'>
+				<a href="/lab-07/images/amenity_8000px.png" target="blank">Link to high resoultion map</a><br>
+				<a href="/lab-07/map-challenge/index.html" target="blank">Zoomable Map</a><br>
+		</div>
+		</div>
+		<hr>
+		<div class="row">
+			<h2>Enjoy! Woodland Park (LEX, KY): Cafe, Pub, Bar</h2>
+			<h4>Within 1 mile radius of Woodland Park
+				<li>17 cafes, 3 pubs, and 10 bars</li>
+				<li>See below pictures for representative a cafe, pub, and bar</li>
+				<li>Click the name of cafe, pub, and bar to see more information</li>
+			</h4>
+			
+			<!-- First column, the left half -->
+		<div class="first-column">
+			<p>
+			<li><a href="https://www.highonartandcoffee.com/" target="blank">Cafe: High on Art & Coffee</a></li>
+			<img class="max-image-width" src="/lab-07/map/graphics/cafe_high_on_art_coffee.jpg">
+			Address: 523 E High St, Lexington, KY 40502
+			</p>
+			<p>
+			<li><a href="http://www.thebeertrappe.com/" target="blank">Pub: The Beer Trappe</a></li>
+			<img class="max-image-width" src="/lab-07/map/graphics/pub_Beer_trappe.jpg">
+			Address: 811 Euclid Ave, Lexington, KY 40502
+			</p>
+		</div>
+      <!-- Second column, the right half -->
+    	<div class="column">
+			<p>
+			<li><a href="https://www.restaurantji.com/ky/lexington/silks-bar-/" target="blank">Bar: Silks Lounge</a></li>
+			<iframe class="max-image-width" src="https://www.google.com/maps/embed?pb=!4v1622929284129!6m8!1m7!1sKURo5WFS07t9Bly5h_02LQ!2m2!1d38.04853666092891!2d-84.49835210430064!3f297.0016976352019!4f-4.456104343535856!5f2.446692171033944" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			Address: 125 N Mill St, Lexington, KY 40507
+			</p>	
+		
+
+		<h3>Authored by: Hoyeon Jeong</h3>
+		<p>
+			<li>Software: QGIS 3.16 on WIndows 10 Professional</li>
+			<li>CRS: EPSG 3089 (Kentucky)</li>
+			<li>Scale: 1:10,000</li>
+			<li>Sources: <a href="https://www.openstreetmap.org/" target="blank">
+				<dd>Open Street Map data harvested from the QuickOSM plugin</a></li></dd>
+				<dd>&copy; Openstreet map contributors</dd>
+			<li>Photos</li>
+				<dd>High on Art & Coffee, LLC, <a href="https://www.highonartandcoffee.com/contact.html" target="blank">Contact</a></dd>
+				<dd>The Beer Trappe, <a href="http://www.thebeertrappe.com/contact/" target="blank">Contact</a></dd>
+				<dd>Silk Lounge from Google Map</dd>
+			<li>Contact Information</li>
+				<dd>See my projects on GitHub: <a href="https://github.com/HoyeonJeong" target="blank">Hoyeon Jeong</a></dd>
+		</p>
+		</div>
+	</section>
+
+</body>
+
+</html>
